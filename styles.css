@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    background-color: #008080; /* Color de fondo de Windows 98 */
+    font-family: 'MS Sans Serif', sans-serif;
+    color: #000; /* Color de texto */
+    height: 100vh; /* Asegura que el cuerpo ocupa toda la altura de la ventana */
+    overflow: hidden; /* Evita el desplazamiento */
+}
+
+.desktop {
+    position: relative;
+    width: 100vw; /* Asegura que ocupe el ancho completo */
+    height: calc(100vh - 40px); /* Altura total menos la barra de tareas */
+    display: flex; /* Usar flexbox para el diseño */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    padding-bottom: 40px; /* Espacio para la barra de tareas */
+}
+
+/* Estilo del botón "Inicio" en la esquina inferior izquierda */
+#windows-button {
+    position: absolute;
+    bottom: 5px; /* Alineado al fondo */
+    left: 5px; /* Alineado a la izquierda */
+    padding: 0; /* Eliminar padding para que solo ocupe el tamaño de la imagen */
+    cursor: pointer;
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno al hacer clic */
+    width: 35px; /* Ajusta el ancho del botón */
+    height: 35px; /* Ajusta la altura del botón */
+}
+
+/* Ajustar la imagen dentro del botón */
+#windows-button img {
+    width: 100%; /* La imagen ocupa el 100% del botón */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Efecto hover para el botón "Inicio" */
+#windows-button:hover {
+    background-color: #a0a0a0; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo de las carpetas */
+.folder {
+    width: 100px; /* Ajusta el tamaño de las carpetas */
+    height: auto; /* Mantiene la proporción de las carpetas */
+    display: flex;
+    flex-direction: column; /* Para apilar el icono y el texto */
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Espaciado entre carpetas */
+    cursor: pointer;
+}
+
+/* Efecto hover solo en las carpetas */
+.folder:hover {
+    opacity: 0.5; /* Cambia la opacidad al pasar el mouse */
+}
+
+/* Ajustes para el icono de la carpeta */
+.folder-icon {
+    width: 64px; /* Ajusta el tamaño del icono */
+    height: auto; /* Mantiene la proporción del icono */
+    margin-bottom: 5px; /* Espacio entre el icono y el texto */
+}
+
+/* Estilo para el logo de contacto como carpeta */
+#contact-folder {
+    position: relative; /* Asegura que esté alineado con las carpetas */
+}
+
+/* Estilo de la ventana modal */
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #000080; /* Borde para la ventana modal */
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+}
+
+.close {
+    color: #aaa; /* Color de la "x" de cerrar */
+    float: right; /* Alinear a la derecha */
+    font-size: 28px; /* Tamaño de la "x" de cerrar */
+    font-weight: bold; /* Negrita */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cambia de color al pasar el ratón */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cambia el cursor */
+}
+
+#profile-photo {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    border: 2px solid #000; /* Borde para la foto */
+}
+
+/* Estilo del footer como barra de tareas de Windows 98 */
+.footer {
+    background-color: #c0c0c0; /* Color de fondo de la barra de tareas */
+    height: 40px; /* Altura de la barra de tareas */
+    position: absolute; /* Para que esté en la parte inferior */
+    bottom: 0; /* Alineado al fondo */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Alineado a la derecha */
+    display: flex; /* Para alinear los elementos dentro del footer */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    padding: 0 10px; /* Espaciado interno */
+}
+
+.time {
+    font-size: 20px; /* Ajusta el tamaño de fuente si es necesario */
+    color: #000; /* Color del texto */
+    margin-left: auto; /* Empuja la hora hacia la derecha */
+}
+/* Media Queries para ajustes responsivos */
+@media (max-width: 768px) {
+    .folder {
+        width: 25%; /* Aumentar el ancho para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .folder {
+        width: 40%; /* Ajustar el ancho de las carpetas para pantallas muy pequeñas */
+    }
+}
