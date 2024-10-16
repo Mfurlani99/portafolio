@@ -123,6 +123,39 @@ body {
     color: #000; /* Color del texto */
     margin-left: auto; /* Empuja la hora hacia la derecha */
 }
+
+/* sobre mi */
+
+.sobre-mi {
+    background-color: #FFFFFF; /* Fondo blanco para el contenido */
+    padding: 20px;
+    border: 1px solid #000; /* Borde alrededor del contenido */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para efecto 3D */
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.contenido {
+    display: flex; /* Flexbox para alinear la imagen y el texto */
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+#profile-photo {
+    width: 100px; /* Tamaño de la foto */
+    height: 100px; /* Tamaño de la foto */
+    border-radius: 50%; /* Hacer la imagen circular */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.text-content {
+    flex: 1; /* Permitir que el texto ocupe el resto del espacio */
+}
+
+
 /* Media Queries para ajustes responsivos */
 @media (max-width: 768px) {
     .folder {

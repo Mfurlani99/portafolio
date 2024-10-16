@@ -3,104 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mí</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de enlazar tu CSS -->
-    <style>
-        body {
-            margin: 0;
-            background-color: #008080; /* Color de fondo de Windows 98 */
-            font-family: 'MS Sans Serif', sans-serif;
-            color: #000;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal {
-            display: block; /* Mostrar el modal */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            border: 2px solid #000080;
-            z-index: 1000;
-            animation: fadeIn 0.5s; /* Añade la animación de entrada */
-        }
-
-        /* Estilos para el contenido del modal */
-        .profile-photo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-photo {
-            width: 16%;
-            height: 16%;
-            border-radius: 50%; /* Hace que la imagen sea circular */
-            object-fit: cover;
-            transition: transform 0.3s ease; /* Transición suave */
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.1); /* Aumenta un poco la imagen al pasar el mouse */
-        }
-
-        .about-me-info {
-            text-align: center; /* Centra el texto */
-        }
-
-        h2 {
-            margin-top: 0; /* Eliminar margen superior */
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Animación de entrada */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles2.css">
+    <title>Sobre mí</title>
 </head>
 <body>
-
-    <div id="about-me-modal" class="modal">
-        <span class="close" id="close-about-me">&times;</span>
-        <div class="profile-photo-container">
-            <img src="resources/mf.jpeg" alt="Mi Foto" class="profile-photo">
+    <div class="window">
+        <div class="header">
+            <h1>Sobre Mí</h1>
+            <button id="close-button" onclick="closeAbout()">X</button>
         </div>
-        <div class="about-me-info">
-            <h2>Sobre Mí</h2>
-            <p><strong>Experiencia Laboral:</strong> Desarrollador web en XYZ Company durante 3 años.</p>
-            <p><strong>Objetivos:</strong> Aprender nuevas tecnologías y mejorar mis habilidades de programación.</p>
-            <p><strong>Estudios:</strong> Licenciado en Ciencias de la Computación.</p>
+        <div class="contenido">
+            <img src="resources/mf.jpeg" alt="Mi Foto" id="profile-photo">
+            <div class="text-content">
+                <p><strong>Descripción personal:</strong> Soy un apasionado de la programación y el diseño gráfico, siempre buscando aprender y crecer en mi carrera.</p>
+                <p><strong>Experiencia laboral:</strong> He trabajado en varios proyectos de desarrollo web, creando aplicaciones interactivas y sitios web responsivos.</p>
+                <p><strong>Objetivos:</strong> Mis objetivos son mejorar mis habilidades en ciberseguridad y contribuir a proyectos innovadores que hagan una diferencia.</p>
+                <p><strong>Estudios:</strong> Tengo una licenciatura en Ciencias de la Computación y he completado varios cursos de diseño gráfico y programación.</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Cierra el modal al hacer clic en "x"
-        document.getElementById("close-about-me").onclick = function() {
-            window.close(); // Cierra la ventana actual (modal)
-        };
+    <div class="footer">
+        <button id="windows-button"><img src="resources/logotipo-de-windows.png" alt="logotipo-de-windows"></button>
+        <p id="display-time" class="time"></p>
+    </div>
 
-        // Cerrar el modal si se hace clic fuera de él
-        window.onclick = function(event) {
-            const modal = document.getElementById("about-me-modal");
-            if (event.target == modal) {
-                window.close(); // Cierra la ventana actual (modal)
-            }
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

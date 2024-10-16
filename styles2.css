@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box; /* Asegura que el padding y el border no afecten el tamaño total */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #008080; /* Color de fondo similar a Windows 98 */
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.window {
+    width: 80%; /* Ancho de la ventana */
+    height: 80%; /* Alto de la ventana */
+    margin: auto; /* Centra la ventana */
+    background-color: #C0C0C0; /* Color de fondo del contenedor */
+    border: 2px solid #000; /* Borde similar a Windows 98 */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra para efecto 3D */
+    border-radius: 5px; /* Bordes redondeados */
+    position: relative; /* Para posicionar el botón de cerrar */
+}
+
+.header {
+    background-color: #000080; /* Color de la barra superior */
+    color: #FFFFFF; /* Color del texto de la barra */
+    padding: 10px;
+    display: flex; /* Flexbox para alinear título y botón */
+    justify-content: space-between; /* Espaciado entre el título y el botón */
+    align-items: center; /* Centra verticalmente */
+}
+
+h1 {
+    font-size: 20px; /* Tamaño del texto */
+}
+
+#close-button {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    font-size: 18px; /* Tamaño del texto */
+    cursor: pointer; /* Cursor en forma de mano */
+}
+
+.contenido {
+    display: flex; /* Flexbox para alinear la imagen y el texto */
+    padding: 20px; /* Espaciado interno */
+}
+
+#profile-photo {
+    width: 100px; /* Tamaño de la foto */
+    height: 100px; /* Tamaño de la foto */
+    border-radius: 50%; /* Hacer la imagen circular */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.text-content {
+    flex: 1; /* Permitir que el texto ocupe el resto del espacio */
+}
+
+.footer {
+    background-color: #c0c0c0; /* Color de fondo de la barra de tareas */
+    height: 40px; /* Altura de la barra de tareas */
+    position: absolute; /* Para que esté en la parte inferior */
+    bottom: 0; /* Alineado al fondo */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Alineado a la derecha */
+    display: flex; /* Para alinear los elementos dentro del footer */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    padding: 0 10px; /* Espaciado interno */
+}
+
+.time {
+    font-size: 20px; /* Ajusta el tamaño de fuente si es necesario */
+    color: #000; /* Color del texto */
+    margin-left: auto; /* Empuja la hora hacia la derecha */
+}
+
+#windows-button {
+    position: absolute;
+    bottom: 5px; /* Alineado al fondo */
+    left: 5px; /* Alineado a la izquierda */
+    padding: 0; /* Eliminar padding para que solo ocupe el tamaño de la imagen */
+    cursor: pointer;
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno al hacer clic */
+    width: 35px; /* Ajusta el ancho del botón */
+    height: 35px; /* Ajusta la altura del botón */
+}
+
+/* Ajustar la imagen dentro del botón */
+#windows-button img {
+    width: 100%; /* La imagen ocupa el 100% del botón */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Efecto hover para el botón "Inicio" */
+#windows-button:hover {
+    background-color: #a0a0a0; /* Color más oscuro al pasar el mouse */
+}

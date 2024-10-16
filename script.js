@@ -11,14 +11,6 @@ if (closeModal) { // Verifica que el elemento exista
     };
 }
 
-// Funcionalidades para las carpetas
-document.getElementById("projects-folder").onclick = function() {
-    alert("Aquí van tus proyectos."); // Mensaje de alerta para proyectos
-};
-
-document.getElementById("about-folder").onclick = function() {
-    alert("Aquí hay información sobre ti."); // Mensaje de alerta sobre ti
-};
 
 // Función para actualizar la hora
 function myFunc() {
@@ -33,3 +25,4 @@ function myFunc() {
 // Llama a la función de actualización de tiempo y la establece para que se ejecute cada segundo
 myFunc();
 setInterval(myFunc, 1000);
+
