@@ -1,103 +1,259 @@
 * {
-    box-sizing: border-box; /* Asegura que el padding y el border no afecten el tamaño total */
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #008080; /* Color de fondo similar a Windows 98 */
-    color: #000;
-    font-family: 'Arial', sans-serif;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
+  background-color: #008080;
+  color: #000;
+  font-family: "Arial", sans-serif;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .window {
-    width: 80%; /* Ancho de la ventana */
-    height: 80%; /* Alto de la ventana */
-    margin: auto; /* Centra la ventana */
-    background-color: #C0C0C0; /* Color de fondo del contenedor */
-    border: 2px solid #000; /* Borde similar a Windows 98 */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra para efecto 3D */
-    border-radius: 5px; /* Bordes redondeados */
-    position: relative; /* Para posicionar el botón de cerrar */
+  width: 80vw; /* Aumentar el ancho al 80% de la pantalla en pantallas grandes */
+  max-width: 1500px; /* Máximo ancho */
+  height: 80vh; /* Altura de la ventana ajustada */
+  max-height: 800px; /* Máximo alto */
+  background-color: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .header {
-    background-color: #000080; /* Color de la barra superior */
-    color: #FFFFFF; /* Color del texto de la barra */
-    padding: 10px;
-    display: flex; /* Flexbox para alinear título y botón */
-    justify-content: space-between; /* Espaciado entre el título y el botón */
-    align-items: center; /* Centra verticalmente */
+  background-color: #000080;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
-    font-size: 20px; /* Tamaño del texto */
+  font-size: 2.5vw;
 }
 
 #close-button {
-    background: none; /* Sin fondo */
-    border: none; /* Sin borde */
-    color: white; /* Color del texto */
-    font-size: 18px; /* Tamaño del texto */
-    cursor: pointer; /* Cursor en forma de mano */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#close-button:hover {
+  background-color: red;
 }
 
 .contenido {
-    display: flex; /* Flexbox para alinear la imagen y el texto */
-    padding: 20px; /* Espaciado interno */
+  display: flex;
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 #profile-photo {
-    width: 100px; /* Tamaño de la foto */
-    height: 100px; /* Tamaño de la foto */
-    border-radius: 50%; /* Hacer la imagen circular */
-    margin-right: 20px; /* Espacio entre la imagen y el texto */
+  width: 25%;
+  height: 70%;
+  margin-top: 6%;
+  border-radius: 50%;
+  margin-right: 20px;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+#profile-photo:hover {
+  width: 28%;
 }
 
 .text-content {
-    flex: 1; /* Permitir que el texto ocupe el resto del espacio */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.descripcion,
+.experiencia,
+.objetivos,
+.estudios {
+  margin-bottom: 20px;
+  font-size: 1.2vw;
+}
+
+.descripcion strong,
+.experiencia strong,
+.objetivos strong,
+.estudios strong {
+  color: #000080;
+}
+
+.descripcion,
+.experiencia,
+.objetivos,
+.estudios {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.descripcion {
+  background-color: #e0f7fa;
+}
+.experiencia {
+  background-color: #e8f5e9;
+}
+.objetivos {
+  background-color: #fff9c4;
+}
+.estudios {
+  background-color: #f3e5f5;
 }
 
 .footer {
-    background-color: #c0c0c0; /* Color de fondo de la barra de tareas */
-    height: 40px; /* Altura de la barra de tareas */
-    position: absolute; /* Para que esté en la parte inferior */
-    bottom: 0; /* Alineado al fondo */
-    left: 0; /* Alineado a la izquierda */
-    right: 0; /* Alineado a la derecha */
-    display: flex; /* Para alinear los elementos dentro del footer */
-    align-items: center; /* Centrar verticalmente */
-    justify-content: space-between; /* Espaciado entre los elementos */
-    padding: 0 10px; /* Espaciado interno */
+  background-color: #c0c0c0;
+  height: 40px; /* Asegura que el footer tenga una altura fija */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  position: absolute; /* Absoluto para que esté al fondo de la ventana */
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .time {
-    font-size: 20px; /* Ajusta el tamaño de fuente si es necesario */
-    color: #000; /* Color del texto */
-    margin-left: auto; /* Empuja la hora hacia la derecha */
+  font-size: 20px;
+  color: #000;
 }
 
 #windows-button {
-    position: absolute;
-    bottom: 5px; /* Alineado al fondo */
-    left: 5px; /* Alineado a la izquierda */
-    padding: 0; /* Eliminar padding para que solo ocupe el tamaño de la imagen */
-    cursor: pointer;
-    background-color: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    outline: none; /* Sin contorno al hacer clic */
-    width: 35px; /* Ajusta el ancho del botón */
-    height: 35px; /* Ajusta la altura del botón */
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 35px;
+  height: 35px;
 }
 
-/* Ajustar la imagen dentro del botón */
 #windows-button img {
-    width: 100%; /* La imagen ocupa el 100% del botón */
-    height: auto; /* Mantiene la proporción de la imagen */
+  width: 100%;
+  height: auto;
 }
 
-/* Efecto hover para el botón "Inicio" */
 #windows-button:hover {
-    background-color: #a0a0a0; /* Color más oscuro al pasar el mouse */
+  background-color: #a0a0a0;
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .window {
+    width: 90vw; /* Aumenta el ancho al 90% en pantallas pequeñas */
+    height: 85vh; /* Ajusta la altura al 85% */
+  }
+
+  .contenido {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #profile-photo {
+    width: 40%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  .descripcion,
+  .experiencia,
+  .objetivos,
+  .estudios {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .window {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .contenido {
+    padding: 10px;
+  }
+
+  .footer {
+    height: 50px;
+  }
+
+  .descripcion,
+  .experiencia,
+  .objetivos,
+  .estudios {
+    font-size: 3.5vw;
+  }
+}
+
+/*proyectos*/
+
+.contenido {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan en múltiples líneas */
+  justify-content: center; /* Centrar tarjetas en la ventana */
+  padding: 20px;
+  overflow-y: auto; /* Permitir desplazamiento si hay muchos proyectos */
+}
+
+.project-card {
+  background-color: #ffffff; /* Fondo blanco para las tarjetas */
+  border: 1px solid #c0c0c0; /* Borde ligero */
+  border-radius: 5px; /* Bordes redondeados */
+  margin: 10px; /* Espacio entre tarjetas */
+  padding: 15px; /* Espacio interno */
+  width: 30%; /* Ancho de cada tarjeta (ajustar según sea necesario) */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto 3D */
+  transition: transform 0.2s; /* Transición para efecto hover */
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Efecto de aumentar tamaño al pasar el mouse */
+}
+
+.project-image {
+  width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
+  height: auto; /* Mantener la proporción de la imagen */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.project-title {
+  font-size: 1.5vw; /* Tamaño de fuente del título */
+  margin-top: 10px; /* Espacio superior */
+}
+
+.project-description {
+  font-size: 1vw; /* Tamaño de fuente de la descripción */
+  margin: 10px 0; /* Margen vertical */
+}
+
+.tech-icons {
+  display: flex; /* Flexbox para alinear los íconos de tecnología */
+  gap: 10px; /* Espacio entre íconos */
+}
+
+.tech-icon {
+  width: 30px; /* Tamaño de cada ícono de tecnología */
+  height: auto; /* Mantener proporción de los íconos */
 }

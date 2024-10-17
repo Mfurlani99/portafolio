@@ -1,14 +1,15 @@
 // Muestra el modal de la foto al hacer clic en el botón de Windows
-document.getElementById("windows-button").onclick = function() {
-    document.getElementById("photo-modal").style.display = "block"; // Muestra la foto
-};
 
 // Cierra el modal de la foto
 const closeModal = document.getElementById("close-modal");
 if (closeModal) { // Verifica que el elemento exista
-    closeModal.onclick = function() {
+    closeModal.onclick = function () {
         document.getElementById("photo-modal").style.display = "none"; // Cierra la foto
     };
+}
+
+function closeAbout() {
+    window.location.href = "index.html"; // Redirige a la página "index.html"
 }
 
 

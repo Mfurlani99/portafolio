@@ -1,33 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles2.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles2.css" />
     <title>Sobre mí</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="window">
-        <div class="header">
-            <h1>Sobre Mí</h1>
-            <button id="close-button" onclick="closeAbout()">X</button>
+      <div class="header">
+        <h1>Sobre Mí</h1>
+        <button id="close-button" onclick="closeAbout()">X</button>
+      </div>
+      <div class="contenido">
+        <img src="resources/mf.png" alt="Mi Foto" id="profile-photo" />
+        <div class="text-content">
+          <section class="descripcion">
+            <p>
+              <strong>Descripción personal:</strong> Soy un apasionado de la
+              programación y el diseño gráfico, siempre buscando aprender y
+              crecer en mi carrera.
+            </p>
+          </section>
+
+          <section class="experiencia">
+            <p>
+              <strong>Experiencia laboral:</strong> He trabajado en varios
+              proyectos de desarrollo web, creando aplicaciones interactivas y
+              sitios web responsivos.
+            </p>
+          </section>
+
+          <section class="objetivos">
+            <p>
+              <strong>Objetivos:</strong> Mis objetivos son mejorar mis
+              habilidades en ciberseguridad y contribuir a proyectos innovadores
+              que hagan una diferencia.
+            </p>
+          </section>
+
+          <section class="estudios">
+            <p>
+              <strong>Estudios:</strong> Tengo una licenciatura en Ciencias de
+              la Computación y he completado varios cursos de diseño gráfico y
+              programación.
+            </p>
+          </section>
         </div>
-        <div class="contenido">
-            <img src="resources/mf.jpeg" alt="Mi Foto" id="profile-photo">
-            <div class="text-content">
-                <p><strong>Descripción personal:</strong> Soy un apasionado de la programación y el diseño gráfico, siempre buscando aprender y crecer en mi carrera.</p>
-                <p><strong>Experiencia laboral:</strong> He trabajado en varios proyectos de desarrollo web, creando aplicaciones interactivas y sitios web responsivos.</p>
-                <p><strong>Objetivos:</strong> Mis objetivos son mejorar mis habilidades en ciberseguridad y contribuir a proyectos innovadores que hagan una diferencia.</p>
-                <p><strong>Estudios:</strong> Tengo una licenciatura en Ciencias de la Computación y he completado varios cursos de diseño gráfico y programación.</p>
-            </div>
-        </div>
+      </div>
     </div>
 
     <div class="footer">
-        <button id="windows-button"><img src="resources/logotipo-de-windows.png" alt="logotipo-de-windows"></button>
-        <p id="display-time" class="time"></p>
+      <button id="windows-button" onclick="closeAbout()">
+        <img
+          src="resources/logotipo-de-windows.png"
+          alt="logotipo-de-windows"
+        />
+      </button>
+      <p id="display-time" class="time"></p>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
