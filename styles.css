@@ -1,170 +1,474 @@
+/* Reglas Globales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    margin: 0;
-    background-color: #008080; /* Color de fondo de Windows 98 */
-    font-family: 'MS Sans Serif', sans-serif;
-    color: #000; /* Color de texto */
-    height: 100vh; /* Asegura que el cuerpo ocupa toda la altura de la ventana */
-    overflow: hidden; /* Evita el desplazamiento */
+  margin: 0;
+  background-color: #008080; /* Color de fondo de Windows 98 */
+  font-family: "MS Sans Serif", sans-serif;
+  color: #000;
+  height: auto; /* Cambiado a auto para permitir el desplazamiento */
+  overflow-y: auto; /* Permitir desplazamiento vertical */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Cambiado para alinear al inicio */
+}
+
+/* Diseño de la Ventana */
+.window {
+  margin-top: 10%;
+  width: 80vw;
+  max-width: 1500px;
+  height: auto; /* Cambiado a auto para permitir que el contenido defina la altura */
+  max-height: 80vh; /* Mantener un límite máximo si es necesario */
+  overflow-y: auto; /* Permitir desplazamiento vertical dentro de la ventana */
+  background-color: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  background-color: #000080;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5vw;
+  text-align: center;
+}
+
+/* Botón Cerrar */
+#close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#close-button:hover {
+  background-color: red;
+}
+
+/* Contenido */
+.contenido {
+  display: flex; /* Cambia a flexbox */
+  flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea si no hay suficiente espacio */
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 20px; /* Padding general para el contenedor */
+}
+
+/* Imagen de Perfil */
+#profile-photo {
+  width: 25%;
+  height: 70%;
+  margin-top: 6%;
+  border-radius: 50%;
+  margin-right: 20px;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+#profile-photo:hover {
+  width: 28%;
+}
+
+/* Secciones de Contenido */
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.descripcion,
+.experiencia,
+.objetivos,
+.estudios {
+  margin-bottom: 20px;
+  font-size: 1.2vw;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.descripcion {
+  background-color: #e0f7fa;
+}
+.experiencia {
+  background-color: #e8f5e9;
+}
+.objetivos {
+  background-color: #fff9c4;
+}
+.estudios {
+  background-color: #f3e5f5;
+}
+
+/* Footer como barra de tareas de Windows 98 */
+.footer {
+  background-color: #c0c0c0; /* Color de fondo de la barra de tareas */
+  height: 40px; /* Altura de la barra de tareas */
+  position: absolute; /* Para que esté en la parte inferior */
+  bottom: 0; /* Alineado al fondo */
+  left: 0; /* Alineado a la izquierda */
+  right: 0; /* Alineado a la derecha */
+  display: flex; /* Flexbox para organizar los elementos */
+  justify-content: space-between; /* Espaciado entre los elementos */
+  align-items: center; /* Centrar verticalmente */
+  padding: 0 10px; /* Espaciado interno */
+}
+
+.time {
+  font-size: 20px; /* Ajusta el tamaño de fuente si es necesario */
+  color: #000; /* Color del texto */
+  margin-left: auto; /* Empuja la hora hacia la derecha */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-left {
+  justify-content: flex-start; /* Alinear elementos a la izquierda */
+}
+
+.footer-center {
+  justify-content: center; /* Centrar elementos */
+  flex: 1; /* Permitir que el centro ocupe espacio restante */
+}
+
+.footer-right {
+  justify-content: flex-end; /* Alinear elementos a la derecha */
+}
+
+/* Botón "Inicio" */
+#windows-button {
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 35px;
+  height: 35px;
+  transition: transform 0.2s;
+  border: 0;
+}
+
+#windows-button img {
+  width: 100%;
+  height: auto;
+}
+
+#windows-button:hover {
+  opacity: 0.5;
+  transform: scale(1.05);
 }
 
 .desktop {
-    position: relative;
-    width: 100vw; /* Asegura que ocupe el ancho completo */
-    height: calc(100vh - 40px); /* Altura total menos la barra de tareas */
-    display: flex; /* Usar flexbox para el diseño */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
-    padding-bottom: 40px; /* Espacio para la barra de tareas */
-}
-
-/* Estilo del botón "Inicio" en la esquina inferior izquierda */
-#windows-button {
-    position: absolute;
-    bottom: 5px; /* Alineado al fondo */
-    left: 5px; /* Alineado a la izquierda */
-    padding: 0; /* Eliminar padding para que solo ocupe el tamaño de la imagen */
-    cursor: pointer;
-    background-color: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    outline: none; /* Sin contorno al hacer clic */
-    width: 35px; /* Ajusta el ancho del botón */
-    height: 35px; /* Ajusta la altura del botón */
-}
-
-/* Ajustar la imagen dentro del botón */
-#windows-button img {
-    width: 100%; /* La imagen ocupa el 100% del botón */
-    height: auto; /* Mantiene la proporción de la imagen */
-}
-
-/* Efecto hover para el botón "Inicio" */
-#windows-button:hover {
-    background-color: #a0a0a0; /* Color más oscuro al pasar el mouse */
+  display: flex;
+  flex-direction: column; /* Coloca las carpetas en una columna */
+  align-items: flex-start; /* Alinea las carpetas a la izquierda */
+  position: absolute; /* Para posicionarlo correctamente */
+  top: 0; /* Alinea al borde superior */
+  left: 0; /* Alinea al borde izquierdo */
+  padding: 10px; /* Espaciado interno */
 }
 
 /* Estilo de las carpetas */
 .folder {
-    width: 100px; /* Ajusta el tamaño de las carpetas */
-    height: auto; /* Mantiene la proporción de las carpetas */
-    display: flex;
-    flex-direction: column; /* Para apilar el icono y el texto */
-    align-items: center;
-    justify-content: center;
-    margin: 10px; /* Espaciado entre carpetas */
-    cursor: pointer;
+  display: flex; /* Usamos flex para alinear icono y texto */
+  flex-direction: column; /* Cambiado para colocar el texto debajo del icono */
+  align-items: center; /* Centrar horizontalmente el contenido */
+  background-color: transparent; /* Color de fondo para las carpetas */
+  border: 0; /* Borde de la carpeta */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 5px; /* Espaciado interno */
+  margin: 5px 0; /* Margen entre carpetas */
+  width: 150px; /* Ancho fijo para las carpetas */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  transition: background-color 0.2s; /* Transición suave al cambiar color */
+  transition: transform 0.2s;
 }
 
-/* Efecto hover solo en las carpetas */
 .folder:hover {
-    opacity: 0.5; /* Cambia la opacidad al pasar el mouse */
+  background-color: #c0c0c0; /* Cambia color al pasar el ratón */
+  transform: scale(1.05);
 }
 
-/* Ajustes para el icono de la carpeta */
 .folder-icon {
-    width: 64px; /* Ajusta el tamaño del icono */
-    height: auto; /* Mantiene la proporción del icono */
-    margin-bottom: 5px; /* Espacio entre el icono y el texto */
+  width: 50%; /* Ajusta el tamaño del icono de la carpeta */
+  height: auto; /* Mantiene la proporción del icono */
+  margin-bottom: 5px; /* Espaciado entre el icono y el texto */
 }
 
-/* Estilo para el logo de contacto como carpeta */
-#contact-folder {
-    position: relative; /* Asegura que esté alineado con las carpetas */
+.folder-text {
+  text-align: center; /* Centra el texto */
+  font-size: 14px; /* Ajusta el tamaño del texto */
 }
-
-/* Estilo de la ventana modal */
+/* Estilo de la Ventana Modal */
 .modal {
-    display: none; /* Ocultar por defecto */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: 2px solid #000080; /* Borde para la ventana modal */
-    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid #000080;
+  z-index: 1000;
 }
 
 .close {
-    color: #aaa; /* Color de la "x" de cerrar */
-    float: right; /* Alinear a la derecha */
-    font-size: 28px; /* Tamaño de la "x" de cerrar */
-    font-weight: bold; /* Negrita */
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black; /* Cambia de color al pasar el ratón */
-    text-decoration: none; /* Sin subrayado */
-    cursor: pointer; /* Cambia el cursor */
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-#profile-photo {
-    width: 100px; /* Ajusta el tamaño según sea necesario */
-    border: 2px solid #000; /* Borde para la foto */
+/* Proyectos */
+.project-card {
+  display: flex;
+  flex-direction: column; /* Apila los elementos dentro de la tarjeta */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  width: 100%; /* Ancho completo en pantallas pequeñas */
+  max-width: 300px; /* Limita el ancho máximo */
+  height: auto; /* Altura automática */
+  text-align: center;
+  overflow: hidden;
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+  border-radius: 8px; /* Esquinas redondeadas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
 }
 
-/* Estilo del footer como barra de tareas de Windows 98 */
-.footer {
-    background-color: #c0c0c0; /* Color de fondo de la barra de tareas */
-    height: 40px; /* Altura de la barra de tareas */
-    position: absolute; /* Para que esté en la parte inferior */
-    bottom: 0; /* Alineado al fondo */
-    left: 0; /* Alineado a la izquierda */
-    right: 0; /* Alineado a la derecha */
-    display: flex; /* Para alinear los elementos dentro del footer */
-    align-items: center; /* Centrar verticalmente */
-    justify-content: space-between; /* Espaciado entre los elementos */
-    padding: 0 10px; /* Espaciado interno */
+.project-title {
+  text-decoration: none;
 }
 
-.time {
-    font-size: 20px; /* Ajusta el tamaño de fuente si es necesario */
-    color: #000; /* Color del texto */
-    margin-left: auto; /* Empuja la hora hacia la derecha */
+.project-image {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+  height: 50%; /* Mantiene la proporción de la imagen */
+  max-height: 280px; /* Altura máxima para la imagen */
+  object-fit: cover; /* Cubre el área de la imagen sin distorsión */
 }
 
-/* sobre mi */
-
-.sobre-mi {
-    background-color: #FFFFFF; /* Fondo blanco para el contenido */
-    padding: 20px;
-    border: 1px solid #000; /* Borde alrededor del contenido */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para efecto 3D */
+.project-content {
+  position: relative; /* Asegura que el contenido se posicione correctamente */
+  overflow: hidden; /* Asegura que el contenido adicional no sobresalga */
 }
 
-h1 {
-    font-size: 24px;
-    text-align: center;
+.project-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con transparencia */
+  color: white;
+  font-size: 1vw;
+  padding: 20px;
+  font-size: 90%;
+  opacity: 0; /* Comienza invisible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+  z-index: 3; /* Asegúrate de que esté encima de otros elementos */
 }
 
-.contenido {
-    display: flex; /* Flexbox para alinear la imagen y el texto */
-    align-items: flex-start;
-    margin-top: 20px;
+/* Muestra la descripción al pasar el mouse sobre el contenedor de la tarjeta */
+.project-card:hover .project-description {
+  opacity: 1; /* Muestra la descripción al pasar el mouse */
 }
 
-#profile-photo {
-    width: 100px; /* Tamaño de la foto */
-    height: 100px; /* Tamaño de la foto */
-    border-radius: 50%; /* Hacer la imagen circular */
-    margin-right: 20px; /* Espacio entre la imagen y el texto */
+.tech-icons {
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
 }
 
-.text-content {
-    flex: 1; /* Permitir que el texto ocupe el resto del espacio */
+.tech-icon {
+  width: 30px;
+  height: auto;
 }
 
+.git-hub {
+  width: 35px;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
 
-/* Media Queries para ajustes responsivos */
+.git-hub:hover {
+  transform: scale(1.05);
+  opacity: 0.5;
+}
+
+/* Media Queries para Pantallas Pequeñas */
 @media (max-width: 768px) {
-    .folder {
-        width: 25%; /* Aumentar el ancho para pantallas más pequeñas */
-    }
+  .window {
+    width: 90vw;
+    height: 85vh;
+  }
+
+  .contenido {
+    display: flex; /* Cambia a flexbox */
+    flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px; /* Padding general para el contenedor */
+  }
+  #profile-photo {
+    width: 40%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  .descripcion,
+  .experiencia,
+  .objetivos,
+  .estudios {
+    font-size: 2.5vw;
+  }
+
+  .folder {
+    width: 25%;
+  }
 }
 
 @media (max-width: 480px) {
-    .folder {
-        width: 40%; /* Ajustar el ancho de las carpetas para pantallas muy pequeñas */
+  .window {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .contenido {
+    padding: 10px;
+  }
+
+  .footer {
+    height: 50px;
+  }
+
+  .descripcion,
+  .experiencia,
+  .objetivos,
+  .estudios {
+    font-size: 3.5vw;
+  }
+
+  .folder {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 90%; /* Ancho completo en dispositivos pequeños */
+    max-width: 400px; /* Un máximo razonable */
+  }
+  .window {
+    width: 90vw; /* Ajuste para pantallas más pequeñas */
+    max-height: 90vh; /* Permitir mayor altura en dispositivos móviles */
+  }
+
+  .contenido {
+    flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+    align-items: center; /* Centrar el contenido */
+  }
+
+  #profile-photo {
+    width: 50%; /* Aumenta el tamaño en pantallas pequeñas */
+    max-width: 150px; /* Establecer un máximo razonable */
+  }
+
+  h1 {
+    font-size: 5vw; /* Tamaño de fuente responsive para el título */
+  }
+
+  .descripcion,
+  .experiencia,
+  .objetivos,
+  .estudios {
+    font-size: 3vw; /* Aumentar tamaño de texto */
+    width: 100%; /* Asegura que cada sección ocupe el ancho completo */
+    padding: 10px; /* Padding adecuado */
+  }
+
+  .footer {
+    height: 50px; /* Aumentar altura de la barra de tareas */
+  }
+
+  @media (max-width: 480px) {
+    .window {
+      width: 100vw;
+      height: auto; /* Permitir que la altura se ajuste automáticamente */
+      border-radius: 0;
     }
+
+    #profile-photo {
+      width: 50%; /* Aumenta el tamaño en pantallas pequeñas */
+      max-width: 200px; /* Establecer un máximo razonable */
+    }
+
+    h1 {
+      font-size: 5vw; /* Tamaño de fuente responsive para el título */
+    }
+    .contenido {
+      padding: 10px; /* Menos padding en pantallas muy pequeñas */
+    }
+
+    .project-card {
+      width: 95%; /* Aumenta el ancho en pantallas pequeñas */
+    }
+
+    .window {
+      width: 100vw; /* Ventana ocupa todo el ancho */
+      height: auto; /* Permitir que la altura se ajuste automáticamente */
+      border-radius: 0; /* Sin bordes redondeados */
+    }
+
+    .contenido {
+      padding: 10px; /* Menos padding en pantallas muy pequeñas */
+    }
+
+    .footer {
+      height: 50px; /* Aumentar altura de la barra de tareas */
+    }
+
+    .descripcion,
+    .experiencia,
+    .objetivos,
+    .estudios {
+      font-size: 4vw; /* Tamaño de texto más grande para móviles */
+    }
+  }
 }

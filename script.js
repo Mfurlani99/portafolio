@@ -1,29 +1,43 @@
-// Muestra el modal de la foto al hacer clic en el botón de Windows
+// Espera a que el contenido del DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+    // Cerrar el modal de la foto
+    const closeModal = document.getElementById("close-modal");
+    if (closeModal) { // Verifica que el elemento exista
+        closeModal.addEventListener('click', () => {
+            document.getElementById("photo-modal").style.display = "none"; // Cierra la foto
+        });
+    }
 
-// Cierra el modal de la foto
-const closeModal = document.getElementById("close-modal");
-if (closeModal) { // Verifica que el elemento exista
-    closeModal.onclick = function () {
-        document.getElementById("photo-modal").style.display = "none"; // Cierra la foto
+    // Cerrar la página "Sobre Mí"
+
+    window.closeAboutButton = function () {
+        window.location.href = "index.html"; // Redirige a la página "index.html"
     };
-}
-
-function closeAbout() {
-    window.location.href = "index.html"; // Redirige a la página "index.html"
-}
 
 
-// Función para actualizar la hora
-function myFunc() {
-    var now = new Date();
-    var hours = String(now.getHours()).padStart(2, '0'); // Formato de 2 dígitos
-    var minutes = String(now.getMinutes()).padStart(2, '0'); // Formato de 2 dígitos
-    var time = (`${hours}:${minutes}`);
-    document.getElementById('display-time').innerHTML = time;
-    console.log(time); // Imprime el tiempo en consola
-}
 
-// Llama a la función de actualización de tiempo y la establece para que se ejecute cada segundo
-myFunc();
-setInterval(myFunc, 1000);
 
+    // Interacción de las tarjetas de proyecto
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectInner = card.querySelector('.project-inner'); // Asegúrate de que exista este elemento
+            if (projectInner) {
+                projectInner.classList.toggle('flipped'); // Alterna la clase para voltear la tarjeta
+            }
+        });
+    });
+
+    // Función para actualizar la hora
+    function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0'); // Formato de 2 dígitos
+        const minutes = String(now.getMinutes()).padStart(2, '0'); // Formato de 2 dígitos
+        document.getElementById('display-time').innerHTML = `${hours}:${minutes}`; // Muestra la hora
+    }
+
+    // Llama a la función de actualización de tiempo y la establece para que se ejecute cada segundo
+    updateTime();
+    setInterval(updateTime, 1000); // Actualiza la hora cada segundo
+
+});

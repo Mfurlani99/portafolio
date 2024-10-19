@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles2.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Proyectos</title>
   </head>
   <body>
     <div class="window">
       <div class="header">
         <h1>Sobre Mí</h1>
-        <button id="close-button" onclick="closeAbout()">X</button>
+        <button id="close-button" onclick="closeAboutButton()">X</button>
       </div>
       <div class="contenido">
         <div class="project-card">
@@ -18,87 +18,112 @@
             href="https://github.com/MiguelAChavez/Proyecto_Final.git"
             target="_blank"
           >
-            <img
-              src="resources/sgm.png"
-              alt="Proyecto 1"
-              class="project-image"
-            />
-          </a>
-          <div class="project-info">
-            <h2 class="project-title">(SGM) Sistema de Gestion Marroqueria</h2>
-            <p class="project-description">
-              Descripción breve del Proyecto 1. Aquí puedes hablar de las
-              características y objetivos del proyecto.
-            </p>
-            <div class="tech-icons">
+            <div class="project-content">
               <img
-                src="resources/tecnologias.ico/java.png"
-                alt="JAVA"
-                class="tech-icon"
+                src="resources/sgm.png"
+                alt="Proyecto 1"
+                class="project-image"
               />
-              <img
-                src="resources/tecnologias.ico/spring-boot.svg"
-                alt="SPRING"
-                class="tech-icon"
-              />
-              <img
-                src="resources/tecnologias.ico/javascript-js-square.svg"
-                alt="JavaScript"
-                class="tech-icon"
-              />
+              <h2 class="project-title">
+                (SGM) Sistema de Gestion Marroqueria
+              </h2>
+              <div class="tech-icons">
+                <img
+                  src="resources/tecnologias.ico/java.png"
+                  alt="JAVA"
+                  class="tech-icon"
+                />
+                <img
+                  src="resources/tecnologias.ico/spring-boot.svg"
+                  alt="SPRING"
+                  class="tech-icon"
+                />
+                <img
+                  src="resources/tecnologias.ico/javascript-js-square.svg"
+                  alt="JavaScript"
+                  class="tech-icon"
+                />
+              </div>
+              <p class="project-description">
+                El Sistema de Gestión Marroquería (SGM) es una herramienta
+                integral diseñada para optimizar la administración de una
+                marroquería. Este sistema permite gestionar de manera eficiente
+                el inventario, facilitando el seguimiento y control de los
+                productos disponibles. Además, el SGM ofrece funcionalidades
+                para realizar ventas, registrando cada transacción de manera
+                detallada. Una de las características clave del sistema es el
+                historial completo de todas las actividades, lo que permite a
+                los usuarios acceder a información histórica sobre ventas,
+                entregas y movimientos de inventario. El SGM también incluye un
+                sistema de notificaciones que avisa sobre entregas pendientes y
+                pedidos atrasados, asegurando una gestión proactiva y un mejor
+                servicio al cliente.
+              </p>
             </div>
-          </div>
+          </a>
         </div>
 
         <div class="project-card">
-          <a
-            href="https://github.com/Mfurlani99/plancnuebe.git"
-            target="_blank"
-          >
-            <img
-              src="resources/c9.png"
-              alt="Proyecto 2"
-              class="project-image"
-            />
-          </a>
-          <div class="project-info">
-            <h2 class="project-title">Sitema de actas para Arbolado</h2>
-            <p class="project-description">
-              Descripción breve del Proyecto 2. Aquí puedes hablar de las
-              características y objetivos del proyecto.
-            </p>
-            <div class="tech-icons">
+          <a href="https://mfurlani99.github.io/plancnuebe/" target="_blank">
+            <div class="project-content">
               <img
-                src="resources/tecnologias.ico/alternate-css3-logo.svg"
-                alt="css"
-                class="tech-icon"
+                src="resources/c9.png"
+                alt="Proyecto 2"
+                class="project-image"
               />
-              <img
-                src="resources/tecnologias.ico/html-5-logo.svg"
-                alt="html"
-                class="tech-icon"
-              />
-              <img
-                src="resources/tecnologias.ico/javascript-js-square.svg"
-                alt="JavaScript"
-                class="tech-icon"
-              />
+              <h2 class="project-title">Sistema de actas para Arbolado</h2>
+              <div class="tech-icons">
+                <img
+                  src="resources/tecnologias.ico/alternate-css3-logo.svg"
+                  alt="css"
+                  class="tech-icon"
+                />
+                <img
+                  src="resources/tecnologias.ico/html-5-logo.svg"
+                  alt="html"
+                  class="tech-icon"
+                />
+                <img
+                  src="resources/tecnologias.ico/javascript-js-square.svg"
+                  alt="JavaScript"
+                  class="tech-icon"
+                />
+              </div>
+              <p class="project-description">
+                Descripción breve del Proyecto 2. Aquí puedes hablar de las
+                características y objetivos del proyecto.
+              </p>
             </div>
-          </div>
+          </a>
         </div>
 
-        <!-- espacio para mas tarjetas -->
+        <!-- espacio para más tarjetas -->
       </div>
     </div>
 
     <div class="footer">
-      <button id="windows-button">
-        <img
-          src="resources/logotipo-de-windows.png"
-          alt="logotipo-de-windows"
-        />
-      </button>
-      <p id="display-time" class="time"></p>
+      <div class="footer-left">
+        <button
+          id="windows-button"
+          class="windows-button"
+          onclick="closeAboutButton()"
+        >
+          <img
+            src="resources/logotipo-de-windows.png"
+            alt="logotipo-de-windows"
+          />
+        </button>
+      </div>
+
+      <div class="footer-center">
+        <a href="https://github.com/Mfurlani99" target="_blank" class="git-hub">
+          <img src="resources/tecnologias.ico/github.svg" alt="git boton" />
+        </a>
+      </div>
+
+      <div class="footer-right">
+        <p id="display-time" class="time"></p>
+      </div>
     </div>
 
     <script src="script.js"></script>
