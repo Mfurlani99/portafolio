@@ -1,66 +1,395 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matias Furlani | Desarrollador Backend</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Portafolio profesional de Matias Furlani, Desarrollador Backend especializado en Java, Spring Boot, MySQL y Python. Proyectos, experiencia y stack tecnológico." />
+    <meta name="keywords" content="Matias Furlani, Desarrollador Backend, Java, Spring Boot, MySQL, Python, APIs REST, JavaScript, Portfolio, Programador" />
+    <meta name="author" content="Matias Furlani" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mfurlani99.github.io/portafolio/" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mfurlani99.github.io/portafolio/" />
+    <meta property="og:title" content="Matias Furlani | Desarrollador Backend" />
+    <meta property="og:description" content="Desarrollador Backend especializado en Java, Spring Boot y MySQL. Descubrí mis proyectos y experiencia." />
+    <meta property="og:image" content="https://mfurlani99.github.io/portafolio/resources/mf.png" />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Matias Furlani | Desarrollador Backend" />
+    <meta name="twitter:description" content="Desarrollador Backend especializado en Java, Spring Boot y MySQL." />
+    <meta name="twitter:image" content="https://mfurlani99.github.io/portafolio/resources/mf.png" />
+
+    <link rel="icon" type="image/jpeg" href="resources/logo.jpeg" />
+    <link rel="apple-touch-icon" href="resources/logo.png" />
+    <link rel="preload" as="image" href="resources/logo.png" fetchpriority="high" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles.css" />
-    <title>Matias_Furlani.DEV</title>
+
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://mfurlani99.github.io/portafolio/#person",
+      "name": "Matias Furlani",
+      "jobTitle": "Desarrollador Backend",
+      "image": "https://mfurlani99.github.io/portafolio/resources/mf.png",
+      "email": "mailto:matiasfurlani99@gmail.com",
+      "url": "https://mfurlani99.github.io/portafolio/",
+      "sameAs": ["https://github.com/Mfurlani99"],
+      "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Nacional de Lomas de Zamora" },
+      "knowsAbout": ["Java", "Spring Boot", "React", "MySQL", "Python", "JavaScript", "HTML5", "CSS3", "Git"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Matias Furlani | Desarrollador Backend",
+      "url": "https://mfurlani99.github.io/portafolio/"
+    }
+    </script>
   </head>
   <body>
-    <div class="desktop">
-      <a href="proyectos.html" style="text-decoration: none; color: inherit">
-        <div class="folder" id="projects-folder">
-          <img
-            src="resources/carpeta.png"
-            alt="Proyectos"
-            class="folder-icon"
-          />
-          <span>Proyectos</span>
-        </div>
-      </a>
+    <a href="#main" style="position:absolute;left:-9999px;">Saltar al contenido</a>
 
-      <a href="sobre-mi.html" style="text-decoration: none; color: inherit">
-        <div class="folder" id="about-folder">
-          <img
-            src="resources/carpeta.png"
-            alt="Acerca de"
-            class="folder-icon"
-          />
-          <span>Sobre mí</span>
-        </div>
-      </a>
-
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSe7eckKVGKq8-wZ7m1JSdrhtE7B6Sds6TbrSUQXywrAUD4PoQ/viewform?usp=sf_link"
-        target="_blank"
-        style="text-decoration: none; color: inherit"
-      >
-        <div class="folder" id="contact-folder">
-          <img src="resources/carta.png" alt="Contacto" class="folder-icon" />
-          <span>Contactar</span>
-        </div>
-      </a>
+    <!-- Animated console background -->
+    <div class="bg-anim" aria-hidden="true">
+      <div class="bg-grid"></div>
+      <div class="bg-rain">M F @ D E V · M ATRIX · J AV A · S P R I N G · R E A C T · MYSQL · P Y T H O N · J S · C S S · H T M L · · · 0 1 0 1 0 1 1 0 0 1 · C O N S O L E · · ·</div>
     </div>
 
-    <div class="footer">
-      <div class="footer-left">
-        <button id="windows-button" class="windows-button">
-          <img
-            src="resources/logotipo-de-windows.png"
-            alt="logotipo-de-windows"
-          />
+    <!-- Top navigation bar -->
+    <header class="navbar">
+      <a href="#hero" class="navbar__logo" aria-label="Matias Furlani — inicio">
+        <img class="navbar__logo-img" src="resources/logo.jpeg" alt="Logo de Matias Furlani" />
+      </a>
+
+      <nav class="navbar__nav" id="nav-links" aria-label="Navegación principal">
+        <a href="#hero" class="navbar__link navbar__link--active">inicio</a>
+        <a href="#proyectos" class="navbar__link">proyectos</a>
+        <a href="#skills" class="navbar__link">tecnologías</a>
+        <a href="#sobre-mi" class="navbar__link">sobre mí</a>
+        <a href="#contacto" class="navbar__link">contacto</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
+    </header>
 
-      <div class="footer-center">
-        <a href="https://github.com/Mfurlani99" target="_blank" class="git-hub">
-          <img src="resources/tecnologias.ico/github.svg" alt="git boton" />
-        </a>
-      </div>
+    <div class="main">
+      <main id="main">
+        <!-- ============ HERO ============ -->
+        <section class="hero section--first" id="hero">
+          <div class="hero__inner">
+            <div class="hero__eyebrow">
+              <span class="prompt">&gt;</span> hola, soy
+            </div>
 
-      <div class="footer-right">
-        <p id="display-time" class="time"></p>
-      </div>
+                        <img class="hero__logo" src="resources/logo.png" alt="Logo de Matias Furlani" width="96" height="96" fetchpriority="high" />
+
+            <h1 class="hero__title">
+              <span id="typewriter-text" class="hero__type">Matias Furlani</span><span class="type-cursor" aria-hidden="true"></span>
+            </h1>
+
+            <!-- Tech carousel -->
+            <div class="tech-carousel" aria-label="Tecnologías que domino">
+              <div class="tech-carousel__track">
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/java.svg" alt="Java" />
+                  <span>java</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/spring-boot.svg" alt="Spring Boot" />
+                  <span>spring boot</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/mysql.svg" alt="MySQL" />
+                  <span>mysql</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/react.svg" alt="React" />
+                  <span>react</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/python.svg" alt="Python" />
+                  <span>python</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/javascript-js-square.svg" alt="JavaScript" />
+                  <span>javascript</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/html-5-logo.svg" alt="HTML5" />
+                  <span>html5</span>
+                </div>
+                <div class="tech-carousel__item">
+                  <img src="resources/tecnologias.ico/alternate-css3-logo.svg" alt="CSS3" />
+                  <span>css3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PROYECTOS ============ -->
+        <section class="section" id="proyectos">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="console-label"><span class="prompt">//</span> proyectos</div>
+              <h2 class="section-title">Trabajo seleccionado</h2>
+              <p class="section-subtitle">Productos reales con impacto medible, de la idea a la implementación.</p>
+            </div>
+
+            <div class="projects-grid">
+              <!-- SGM -->
+              <article class="project-card reveal">
+                <div class="project-card__media">
+                  <img class="project-card__img" src="resources/sgm.png" alt="Interfaz del Sistema de Gestión Marroquería (SGM)" loading="lazy" />
+                  <span class="project-card__tag">backend</span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">SGM — Sistema de Gestión Marroquería</h3>
+                  <p class="project-card__desc">
+                    Plataforma integral de gestión comercial: inventario en tiempo real, registro de ventas,
+                    historial de transacciones y notificaciones proactivas de entregas pendientes y pedidos atrasados.
+                  </p>
+                  <div class="project-card__tech">
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/java.svg" alt="" /> java</span>
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/spring-boot.svg" alt="" /> spring</span>
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/mysql.svg" alt="" /> mysql</span>
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/javascript-js-square.svg" alt="" /> js</span>
+                  </div>
+                  <div class="project-card__links">
+                    <a href="https://github.com/Mfurlani99/SGM" target="_blank" rel="noopener noreferrer" class="btn btn--sm">ver código</a>
+                    <a href="proyectos.html" class="btn btn--sm btn--primary">detalles</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Actas -->
+              <article class="project-card reveal">
+                <div class="project-card__media">
+                  <img class="project-card__img" src="resources/c9.png" alt="Vista previa del sistema digital de actas de poda" loading="lazy" />
+                  <span class="project-card__tag">sector público</span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Actas digitales de arbolado</h3>
+                  <p class="project-card__desc">
+                    Digitalización del proceso de inspección de poda municipal: formularios móviles,
+                    generación automática de PDF con geolocalización y firma del inspector.
+                  </p>
+                  <div class="project-card__tech">
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/javascript-js-square.svg" alt="" /> js</span>
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/html-5-logo.svg" alt="" /> html5</span>
+                    <span class="tech-pill"><img src="resources/tecnologias.ico/alternate-css3-logo.svg" alt="" /> css3</span>
+                  </div>
+                  <div class="project-card__links">
+                    <a href="https://mfurlani99.github.io/plancnuebe/" target="_blank" rel="noopener noreferrer" class="btn btn--sm btn--primary">demo en vivo</a>
+                    <a href="proyectos.html" class="btn btn--sm">detalles</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SKILLS ============ -->
+        <section class="section" id="skills">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="console-label"><span class="prompt">//</span> stack</div>
+              <h2 class="section-title">Herramientas que domino</h2>
+            </div>
+
+            <div class="skills-list reveal">
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/java.svg" alt="" /> Java</span>
+                <p class="skill-row__desc">Orientación a objetos, colecciones, concurrencia y lógica de dominio robusta.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/spring-boot.svg" alt="" /> Spring Boot</span>
+                <p class="skill-row__desc">APIs REST, Spring Data, seguridad, JPA e inyección de dependencias.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/react.svg" alt="" /> React</span>
+                <p class="skill-row__desc">Componentes funcionales, hooks, JSX y consumo de APIs.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/mysql.svg" alt="" /> MySQL / SQL</span>
+                <p class="skill-row__desc">Modelado relacional, consultas optimizadas e integridad de datos.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/python.svg" alt="" /> Python</span>
+                <p class="skill-row__desc">Scripting, automatización y procesamiento de datos.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/javascript-js-square.svg" alt="" /> JavaScript</span>
+                <p class="skill-row__desc">ES6+, asincronía, DOM y consumo de APIs web.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/html-5-logo.svg" alt="" /> HTML5 &amp; CSS3</span>
+                <p class="skill-row__desc">Maquetación semántica, Flexbox, Grid y diseño accesible.</p>
+              </div>
+              <div class="skill-row">
+                <span class="skill-row__name"><img src="resources/tecnologias.ico/github.svg" alt="" /> Git &amp; GitHub</span>
+                <p class="skill-row__desc">Control de versiones, ramas, pull requests y colaboración.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SOBRE MÍ ============ -->
+        <section class="section" id="sobre-mi">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="console-label"><span class="prompt">//</span> sobre mí</div>
+              <h2 class="section-title">Ingeniero por vocación</h2>
+            </div>
+
+            <div class="about-grid">
+              <aside class="profile-card reveal">
+                <div class="profile-card__avatar">
+                  <img src="resources/mf.png" alt="Retrato de Matias Furlani" />
+                </div>
+                <div class="profile-card__name">Matias Furlani</div>
+                <div class="profile-card__role">desarrollador backend</div>
+                <div class="profile-card__meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    buenos aires, argentina
+                  </span>
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="m2 7 10 6 10-6"/></svg>
+                    matiasfurlani99@gmail.com
+                  </span>
+                </div>
+                <a href="https://github.com/Mfurlani99" target="_blank" rel="noopener noreferrer" class="btn btn--block" style="margin-top: var(--s-4);">github ↗</a>
+              </aside>
+
+              <div class="reveal">
+                <p class="about__text">
+                  Apasionado por la programación desde muy joven, me dedico a convertir problemas complejos
+                  en <strong>software claro y mantenible</strong>. Valoro el pensamiento lógico, el aprendizaje
+                  continuo y las buenas prácticas. Trabajo en el sector público desarrollando herramientas
+                  digitales que optimizan procesos reales.
+                </p>
+
+                <div class="timeline">
+                  <div class="timeline__item">
+                    <div class="timeline__date">2021 — presente</div>
+                    <div class="timeline__title">Administrador de Sistemas &amp; Desarrollador</div>
+                    <div class="timeline__place">Comuna 9 · Gobierno de la Ciudad</div>
+                    <p class="timeline__desc">Desarrollo de sistemas internos y automatizaciones para agilizar la gestión administrativa y la respuesta a vecinos.</p>
+                  </div>
+                  <div class="timeline__item">
+                    <div class="timeline__date">2023</div>
+                    <div class="timeline__title">Tecnicatura Universitaria en Programación</div>
+                    <div class="timeline__place">Universidad Nacional de Lomas de Zamora</div>
+                    <p class="timeline__desc">Formación en algoritmos, estructuras de datos, POO y bases de datos; y constante actualización con cursos especializados.</p>
+                  </div>
+                  <div class="timeline__item">
+                    <div class="timeline__date">en curso</div>
+                    <div class="timeline__title">Carrera de Java</div>
+                    <div class="timeline__place">Educación IT</div>
+                    <p class="timeline__desc">Formación profesionalizante en el ecosistema Java: POO, Java EE, JPA, Spring Boot y desarrollo web.</p>
+                  </div>
+                </div>
+
+                <a href="sobre-mi.html" class="btn" style="margin-top: var(--s-5);">leer mi historia completa</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CONTACTO ============ -->
+        <section class="section" id="contacto">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="console-label"><span class="prompt">//</span> contacto</div>
+              <h2 class="section-title">¿Trabajamos juntos?</h2>
+            </div>
+
+            <div class="contact-grid">
+              <div class="contact-methods reveal">
+                <a href="mailto:matiasfurlani99@gmail.com" class="contact-item">
+                  <span class="contact-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="m2 7 10 6 10-6"/></svg>
+                  </span>
+                  <span><span class="contact-item__label">email</span><span class="contact-item__value">matiasfurlani99@gmail.com</span></span>
+                </a>
+                <a href="https://github.com/Mfurlani99" target="_blank" rel="noopener noreferrer" class="contact-item">
+                  <span class="contact-item__icon"><img src="resources/tecnologias.ico/github.svg" alt="" /></span>
+                  <span><span class="contact-item__label">github</span><span class="contact-item__value">github.com/Mfurlani99</span></span>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7eckKVGKq8-wZ7m1JSdrhtE7B6Sds6TbrSUQXywrAUD4PoQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" class="contact-item">
+                  <span class="contact-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+                  </span>
+                  <span><span class="contact-item__label">formulario</span><span class="contact-item__value">google forms</span></span>
+                </a>
+              </div>
+
+              <form class="contact-form reveal" id="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="name">nombre</label>
+                  <input class="form-control" type="text" id="name" name="name" placeholder="tu nombre" autocomplete="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">correo electrónico</label>
+                  <input class="form-control" type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">mensaje</label>
+                  <textarea class="form-control" id="message" name="message" placeholder="contame sobre tu proyecto o propuesta..." autocomplete="off" required></textarea>
+                </div>
+                <button class="btn btn--primary btn--block" type="submit">enviar mensaje</button>
+                <div id="response-message" class="response-message" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ============ FOOTER ============ -->
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__copy">© <span id="current-year">2026</span> · diseñado y construido por Matias Furlani</div>
+        </div>
+      </footer>
     </div>
 
     <script src="script.js"></script>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /testsprite_tests/
+
+Sitemap: https://mfurlani99.github.io/portafolio/sitemap.xml
