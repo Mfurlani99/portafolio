@@ -486,7 +486,16 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 /* GitHub mark is black by brand: invert it so it's visible in dark mode */
 :root[data-theme="dark"] img[src*="github"] {
   filter: invert(1);
-}.project-card__links {
+}
+
+/* Logo limpio: lobo blanco sobre transparente.
+   En modo claro se invierte a negro para verse sobre fondo blanco. */
+:root[data-theme="light"] .navbar__logo-img,
+:root[data-theme="light"] .hero__logo {
+  filter: invert(1);
+}
+
+.project-card__links {
   display: flex;
   gap: var(--s-3);
   padding-top: var(--s-4);
