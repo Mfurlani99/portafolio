@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initMotionToggle();
   initMobileMenu();
   initNavObservers();
   initScrollReveal();
@@ -40,6 +41,30 @@ function initTheme() {
       syncIcons();
     });
   }
+}
+
+/* ------------------------------------------------------------------
+   Motion toggle (fuerza animaciones aunque el sistema pida reducir)
+   ------------------------------------------------------------------ */
+function initMotionToggle() {
+  const btn = document.getElementById('motion-toggle');
+  if (!btn) return;
+  const root = document.documentElement;
+
+  const sync = () => {
+    const off = root.classList.contains('motion-off');
+    btn.setAttribute('aria-pressed', String(!off));
+    btn.classList.toggle('is-off', off);
+  };
+  sync();
+
+  btn.addEventListener('click', () => {
+    const turnOff = !root.classList.contains('motion-off');
+    root.classList.toggle('motion-off', turnOff);
+    try { localStorage.setItem('motion', turnOff ? 'off' : 'on'); } catch (e) {}
+    // Recargamos para reiniciar typewriter/carrusel con el nuevo estado.
+    location.reload();
+  });
 }
 
 /* ------------------------------------------------------------------
@@ -124,8 +149,8 @@ function initTypewriter() {
     'Desarrollador Backend'
   ];
 
-  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) { el.textContent = phrases[0]; return; }
+  const motionOff = document.documentElement.classList.contains('motion-off');
+  if (motionOff) { el.textContent = phrases[0]; return; }
 
   const setLogoUp = up => { if (logo) logo.classList.toggle('is-up', up); };
 
@@ -174,8 +199,8 @@ function initTechCarousel() {
     track.dataset.duplicated = '1';
   }
 
-  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) { track.classList.remove('is-animating'); return; }
+  const motionOff = document.documentElement.classList.contains('motion-off');
+  if (motionOff) { track.classList.remove('is-animating'); return; }
 
   track.classList.add('is-animating');
 

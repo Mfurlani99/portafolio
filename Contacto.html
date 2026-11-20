@@ -37,6 +37,10 @@
       (function () {
         try {
           document.documentElement.classList.add('js');
+          var mp = new URLSearchParams(location.search).get('motion');
+          var ms = null; try { ms = localStorage.getItem('motion'); } catch (e2) {}
+          var mv = (mp === 'on' || mp === '1') ? 'on' : (mp === 'off' || mp === '0') ? 'off' : (ms || 'on');
+          if (mv === 'off') document.documentElement.classList.add('motion-off');
           var q = new URLSearchParams(location.search).get('theme');
           var t = (q === 'light' || q === 'dark') ? q : localStorage.getItem('theme');
           if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';

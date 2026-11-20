@@ -58,12 +58,14 @@
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-  /* Con reduced-motion, el contenido no depende del observer: visible ya. */
-  .js .reveal { opacity: 1 !important; transform: none !important; }
-}
+/* Motion: por defecto las animaciones corren (dueño del sitio las quiere).
+   El usuario puede apagarlas con el toggle de motion (clase .motion-off). */
+html.motion-off { scroll-behavior: auto; }
+html.motion-off *,
+html.motion-off *::before,
+html.motion-off *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+/* Con motion apagado, el contenido no depende del observer: visible ya. */
+html.motion-off .js .reveal { opacity: 1 !important; transform: none !important; }
 
 body {
   background: var(--bg);
@@ -205,6 +207,7 @@ input, textarea { caret-color: var(--fg); }
   transition: color 0.12s var(--ease), border-color 0.12s var(--ease);
 }
 .theme-btn:hover { color: var(--fg); border-color: var(--fg); }
+.theme-btn.is-off { opacity: 0.5; }
 .theme-btn svg { width: 18px; height: 18px; }
 
 .menu-toggle { display: none; place-items: center; width: 40px; height: 40px; border: 2px solid var(--line); }
