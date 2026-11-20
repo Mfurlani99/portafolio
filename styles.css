@@ -65,7 +65,7 @@ html.motion-off *,
 html.motion-off *::before,
 html.motion-off *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 /* Con motion apagado, el contenido no depende del observer: visible ya. */
-html.motion-off .js .reveal { opacity: 1 !important; transform: none !important; }
+html.motion-off .reveal { opacity: 1 !important; transform: none !important; }
 
 body {
   background: var(--bg);
@@ -306,13 +306,15 @@ input, textarea { caret-color: var(--fg); }
   height: 112px;
   object-fit: contain;
   margin-bottom: var(--s-5);
+  animation: logoFloat 6s ease-in-out infinite;
 }
 
-.hero__logo.is-up { animation: logoBob 2.4s steps(2, end) infinite; }
+/* is-up se mantiene por compatibilidad con el JS, sin animación extra */
+.hero__logo.is-up { animation: logoFloat 6s ease-in-out infinite; }
 
-@keyframes logoBob {
+@keyframes logoFloat {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-4px); }
+  50%      { transform: translateY(-5px); }
 }
 
 .hero__title {
@@ -407,8 +409,13 @@ input, textarea { caret-color: var(--fg); }
 .level__name { font-family: var(--font-pixel-micro); font-size: 0.56rem; line-height: 1.5; }
 .level__meta { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); }
 
-.level--current .level__node { background: var(--inverse-bg); color: var(--inverse-fg); }
+.level--current .level__node { background: var(--inverse-bg); color: var(--inverse-fg); animation: nodePulse 3.4s ease-in-out infinite; }
 .level--current .level__name { font-weight: 700; }
+
+@keyframes nodePulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
 
 .level--locked .level__node {
   border-style: dashed;
@@ -423,12 +430,49 @@ input, textarea { caret-color: var(--fg); }
 
 /* avatar lobo sobre el nivel actual */
 .level__avatar { position: absolute; top: -52px; left: 50%; transform: translateX(-50%); color: var(--fg); }
-.level__avatar svg { width: 40px; height: 40px; display: block; }
+.level__avatar svg { width: 40px; height: 40px; display: block; animation: avatarBob 2.8s ease-in-out infinite; }
+
+@keyframes avatarBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
 
 /* barra de progreso pixel */
 .pbar { display: flex; gap: 2px; justify-content: center; }
 .pbar i { width: 8px; height: 12px; border: 1px solid var(--accent); }
-.pbar i.on { background: var(--accent); }
+.pbar i.on { background: var(--accent); animation: pbarPulse 1.8s steps(2, end) infinite; }
+.pbar i.on:nth-child(2) { animation-delay: 0.2s; }
+.pbar i.on:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pbarPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+/* Nodos del mapa en cascada al entrar en viewport (el contenedor no se oculta) */
+.js .levelmap.reveal { opacity: 1; transform: none; }
+.js .levelmap.reveal .level { opacity: 0; transform: translateY(10px); }
+.js .levelmap.reveal.is-visible .level {
+  opacity: 1; transform: none;
+  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+}
+.js .levelmap.reveal.is-visible .level:nth-child(1) { transition-delay: 0s; }
+.js .levelmap.reveal.is-visible .level:nth-child(2) { transition-delay: 0.08s; }
+.js .levelmap.reveal.is-visible .level:nth-child(3) { transition-delay: 0.16s; }
+.js .levelmap.reveal.is-visible .level:nth-child(4) { transition-delay: 0.24s; }
+.js .levelmap.reveal.is-visible .level:nth-child(5) { transition-delay: 0.32s; }
+
+/* Salvaguardas: con motion apagado o al imprimir, todo visible e instantáneo. */
+html.motion-off .levelmap.reveal .level,
+html.motion-off .levelmap.reveal.is-visible .level {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+@media print {
+  .js .reveal, .js .levelmap.reveal .level { opacity: 1 !important; transform: none !important; }
+  .js .meter i { width: var(--lvl, 50%) !important; }
+}
 
 /* --------------------------------------------------------------------------
    9. Projects — tarjetas "inventario" pixel
@@ -446,8 +490,9 @@ input, textarea { caret-color: var(--fg); }
 .project-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 0 var(--fg); }
 
 .project-card__media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 2px solid var(--line); background: var(--bg-soft); }
-.project-card__img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+.project-card__img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: transform 0.5s var(--ease); }
 :root[data-theme="dark"] .project-card__img { filter: grayscale(1) contrast(1.05) brightness(0.92); }
+.project-card:hover .project-card__img { transform: scale(1.04); }
 
 .project-card__tag {
   position: absolute;
@@ -525,6 +570,11 @@ input, textarea { caret-color: var(--fg); }
   width: var(--lvl, 50%);
   background-image: repeating-linear-gradient(90deg, var(--fg) 0 6px, transparent 6px 9px);
 }
+
+/* Las barras se llenan al entrar en viewport (una sola vez) */
+.js .meter i { width: 0; transition: width 0.9s var(--ease); }
+.js .skills-list.is-visible .meter i { width: var(--lvl, 50%); }
+html.motion-off .meter i { width: var(--lvl, 50%) !important; }
 
 /* --------------------------------------------------------------------------
    11. About / timeline
