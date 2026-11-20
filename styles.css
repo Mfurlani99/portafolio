@@ -34,7 +34,7 @@
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
   --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
 
-  --ease: steps(2, end);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 [data-theme="dark"] {
@@ -61,6 +61,8 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  /* Con reduced-motion, el contenido no depende del observer: visible ya. */
+  .js .reveal { opacity: 1 !important; transform: none !important; }
 }
 
 body {
@@ -655,10 +657,14 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 /* --------------------------------------------------------------------------
    15. Reveal
    -------------------------------------------------------------------------- */
-/* Entrada mínima y segura: el contenido es visible por defecto (sin depender del
-   observer para aparecer). El momento de motion autor vive en el hero. */
-.reveal { opacity: 1; transform: none; }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* Scroll reveal: solo oculta cuando hay JS (progressive enhancement).
+   Sin JS el contenido se ve; con JS aparece al entrar en viewport. */
+.js .reveal { opacity: 0; transform: translateY(18px); }
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
 
 /* --------------------------------------------------------------------------
    16. Responsive
