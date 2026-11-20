@@ -36,14 +36,15 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
 
     <script>
       (function () {
         try {
-          var t = localStorage.getItem('theme');
+          var q = new URLSearchParams(location.search).get('theme');
+          var t = (q === 'light' || q === 'dark') ? q : localStorage.getItem('theme');
           if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
           document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
@@ -82,7 +83,7 @@
     <!-- Animated console background -->
     <div class="bg-anim" aria-hidden="true">
       <div class="bg-grid"></div>
-      <div class="bg-rain">M F @ D E V · M ATRIX · J AV A · S P R I N G · R E A C T · MYSQL · P Y T H O N · J S · C S S · H T M L · · · 0 1 0 1 0 1 1 0 0 1 · C O N S O L E · · ·</div>
+      <div class="bg-dither"></div>
     </div>
 
     <!-- Top navigation bar -->
@@ -93,6 +94,7 @@
 
       <nav class="navbar__nav" id="nav-links" aria-label="Navegación principal">
         <a href="#hero" class="navbar__link navbar__link--active">inicio</a>
+        <a href="#trayectoria" class="navbar__link">trayectoria</a>
         <a href="#proyectos" class="navbar__link">proyectos</a>
         <a href="#skills" class="navbar__link">tecnologías</a>
         <a href="#sobre-mi" class="navbar__link">sobre mí</a>
@@ -115,15 +117,13 @@
         <!-- ============ HERO ============ -->
         <section class="hero section--first" id="hero">
           <div class="hero__inner">
-            <div class="hero__eyebrow">
-              <span class="prompt">&gt;</span> hola, soy
-            </div>
-
-                        <img class="hero__logo" src="resources/logo-clean.png" alt="Logo de Matias Furlani" width="96" height="96" fetchpriority="high" />
+            <img class="hero__logo" src="resources/logo-clean.png" alt="Logo de Matias Furlani" width="96" height="96" fetchpriority="high" />
 
             <h1 class="hero__title">
               <span id="typewriter-text" class="hero__type">Matias Furlani</span><span class="type-cursor" aria-hidden="true"></span>
             </h1>
+
+            <p class="hero__next">next: ciberseguridad_</p>
 
             <!-- Tech carousel -->
             <div class="tech-carousel" aria-label="Tecnologías que domino">
@@ -165,11 +165,56 @@
           </div>
         </section>
 
+        <!-- ============ TRAYECTORIA (mapa de niveles) ============ -->
+        <section class="section" id="trayectoria">
+          <div class="container">
+            <div class="section-header reveal">
+              <h2 class="section-title">Mi camino, nivel a nivel</h2>
+              <p class="section-subtitle">De aprender a programar a construir sistemas reales. El próximo nivel ya está en el radar.</p>
+            </div>
+
+            <div class="levelmap reveal" role="list" aria-label="Trayectoria profesional como mapa de niveles">
+              <div class="level" role="listitem">
+                <div class="level__node" aria-hidden="true">1</div>
+                <div class="level__name">orígenes</div>
+                <div class="level__meta">aprender a programar</div>
+              </div>
+
+              <div class="level" role="listitem">
+                <div class="level__node" aria-hidden="true">2</div>
+                <div class="level__name">backend &amp; sistemas</div>
+                <div class="level__meta">2021 — presente · Comuna 9</div>
+              </div>
+
+              <div class="level" role="listitem">
+                <div class="level__node" aria-hidden="true">3</div>
+                <div class="level__name">tecnicatura</div>
+                <div class="level__meta">2023 · UNLZ</div>
+              </div>
+
+              <div class="level level--current" role="listitem">
+                <span class="level__avatar" aria-hidden="true"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" fill="currentColor"><rect x="4" y="0" width="1" height="1"/><rect x="7" y="0" width="1" height="1"/><rect x="4" y="1" width="2" height="1"/><rect x="7" y="1" width="2" height="1"/><rect x="3" y="2" width="6" height="1"/><rect x="3" y="3" width="7" height="1"/><rect x="2" y="4" width="6" height="1"/><rect x="9" y="4" width="2" height="1"/><rect x="2" y="5" width="10" height="1"/><rect x="2" y="6" width="9" height="1"/><rect x="3" y="7" width="7" height="1"/><rect x="3" y="8" width="6" height="1"/><rect x="4" y="9" width="4" height="1"/><rect x="4" y="10" width="3" height="1"/><rect x="5" y="11" width="2" height="1"/></svg></span>
+                <div class="level__node" aria-hidden="true">4</div>
+                <div class="level__name">carrera java</div>
+                <div class="level__meta">en curso · Educación IT</div>
+                <div class="level__status">estás acá</div>
+              </div>
+
+              <div class="level level--locked" role="listitem">
+                <div class="level__node"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor" width="22" height="22" aria-hidden="true"><rect x="2" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="0" y="3" width="8" height="1"/><rect x="0" y="4" width="8" height="1"/><rect x="0" y="5" width="3" height="1"/><rect x="5" y="5" width="3" height="1"/><rect x="0" y="6" width="3" height="1"/><rect x="5" y="6" width="3" height="1"/><rect x="0" y="7" width="8" height="1"/></svg></div>
+                <div class="level__name">ciberseguridad</div>
+                <div class="level__meta">próximo nivel</div>
+                <div class="level__status">en preparación</div>
+                <div class="pbar" role="img" aria-label="Ciberseguridad: en preparación"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- ============ PROYECTOS ============ -->
         <section class="section" id="proyectos">
           <div class="container">
             <div class="section-header reveal">
-              <div class="console-label"><span class="prompt">//</span> proyectos</div>
               <h2 class="section-title">Trabajo seleccionado</h2>
               <p class="section-subtitle">Productos reales con impacto medible, de la idea a la implementación.</p>
             </div>
@@ -231,41 +276,48 @@
         <section class="section" id="skills">
           <div class="container">
             <div class="section-header reveal">
-              <div class="console-label"><span class="prompt">//</span> stack</div>
               <h2 class="section-title">Herramientas que domino</h2>
             </div>
 
             <div class="skills-list reveal">
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/java.svg" alt="" /> Java</span>
+                <div class="meter" role="img" aria-label="Java: dominio avanzado"><i style="--lvl:90%"></i></div>
                 <p class="skill-row__desc">Orientación a objetos, colecciones, concurrencia y lógica de dominio robusta.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/spring-boot.svg" alt="" /> Spring Boot</span>
+                <div class="meter" role="img" aria-label="Spring Boot: dominio avanzado"><i style="--lvl:85%"></i></div>
                 <p class="skill-row__desc">APIs REST, Spring Data, seguridad, JPA e inyección de dependencias.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/react.svg" alt="" /> React</span>
+                <div class="meter" role="img" aria-label="React: dominio intermedio"><i style="--lvl:70%"></i></div>
                 <p class="skill-row__desc">Componentes funcionales, hooks, JSX y consumo de APIs.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/mysql.svg" alt="" /> MySQL / SQL</span>
+                <div class="meter" role="img" aria-label="MySQL y SQL: dominio avanzado"><i style="--lvl:85%"></i></div>
                 <p class="skill-row__desc">Modelado relacional, consultas optimizadas e integridad de datos.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/python.svg" alt="" /> Python</span>
+                <div class="meter" role="img" aria-label="Python: dominio intermedio"><i style="--lvl:70%"></i></div>
                 <p class="skill-row__desc">Scripting, automatización y procesamiento de datos.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/javascript-js-square.svg" alt="" /> JavaScript</span>
+                <div class="meter" role="img" aria-label="JavaScript: dominio avanzado"><i style="--lvl:80%"></i></div>
                 <p class="skill-row__desc">ES6+, asincronía, DOM y consumo de APIs web.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/html-5-logo.svg" alt="" /> HTML5 &amp; CSS3</span>
+                <div class="meter" role="img" aria-label="HTML5 y CSS3: dominio avanzado"><i style="--lvl:85%"></i></div>
                 <p class="skill-row__desc">Maquetación semántica, Flexbox, Grid y diseño accesible.</p>
               </div>
               <div class="skill-row">
                 <span class="skill-row__name"><img src="resources/tecnologias.ico/github.svg" alt="" /> Git &amp; GitHub</span>
+                <div class="meter" role="img" aria-label="Git y GitHub: dominio avanzado"><i style="--lvl:85%"></i></div>
                 <p class="skill-row__desc">Control de versiones, ramas, pull requests y colaboración.</p>
               </div>
             </div>
@@ -276,7 +328,6 @@
         <section class="section" id="sobre-mi">
           <div class="container">
             <div class="section-header reveal">
-              <div class="console-label"><span class="prompt">//</span> sobre mí</div>
               <h2 class="section-title">Ingeniero por vocación</h2>
             </div>
 
@@ -340,7 +391,6 @@
         <section class="section" id="contacto">
           <div class="container">
             <div class="section-header reveal">
-              <div class="console-label"><span class="prompt">//</span> contacto</div>
               <h2 class="section-title">¿Trabajamos juntos?</h2>
             </div>
 

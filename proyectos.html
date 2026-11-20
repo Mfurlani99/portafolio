@@ -30,13 +30,14 @@
     <link rel="apple-touch-icon" href="resources/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 
     <script>
       (function () {
         try {
-          var t = localStorage.getItem('theme');
+          var q = new URLSearchParams(location.search).get('theme');
+          var t = (q === 'light' || q === 'dark') ? q : localStorage.getItem('theme');
           if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
           document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
@@ -49,7 +50,7 @@
     <!-- Animated console background -->
     <div class="bg-anim" aria-hidden="true">
       <div class="bg-grid"></div>
-      <div class="bg-rain">M F @ D E V · M ATRIX · J AV A · S P R I N G · R E A C T · MYSQL · P Y T H O N · J S · C S S · H T M L · · · 0 1 0 1 0 1 1 0 0 1 · C O N S O L E · · ·</div>
+      <div class="bg-dither"></div>
     </div>
 
     <header class="navbar">
@@ -79,7 +80,6 @@
     <main id="main">
       <section class="page-hero">
         <div class="container">
-          <div class="console-label"><span class="prompt">//</span> portafolio</div>
           <h1 class="page-hero__title">Proyectos</h1>
           <p class="section-subtitle" style="margin-top: var(--s-3);">Productos reales, de la idea a la implementación.</p>
         </div>
